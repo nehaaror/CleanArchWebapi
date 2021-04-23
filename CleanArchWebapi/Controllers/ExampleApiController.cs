@@ -4,14 +4,21 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
+using System.Web.Http.Cors;
 
 namespace CleanArchWebapi.Controllers
 {
+    [EnableCors("*","*","*")]
     public class ExampleController : ApiController
     {
-        public string Get()
+        private string[] S= { "My First Api Example", "Introduction to Webapi" };
+        public string[] Get()
         {
-            return "My First Api Example";
+            return S;
         }
+        public string Get(int id)
+        {
+            return S[id];
+         }
     }
 }
